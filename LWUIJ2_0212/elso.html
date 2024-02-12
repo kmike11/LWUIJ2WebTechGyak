@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Parancsok</title>
+</head>
+<body>
+    <h1>GitHub Parancsok</h1>
+
+    <h2>Helyi (Local) Műveletek:</h2>
+    <ul>
+        <li><code>git init</code> - Új git repository inicializálása a helyi gépen.</li>
+        <li><code>git add &lt;file&gt;</code> - Fájl hozzáadása a staging area-hoz.</li>
+        <li><code>git commit -m "Commit message"</code> - Staged változások commitolása a repository-ba.</li>
+        <li><code>git status</code> - Státusz lekérdezése a helyi repository-ról.</li>
+        <li><code>git log</code> - Commitok listázása a repository-ban.</li>
+    </ul>
+
+    <h2>Távoli (Remote) Műveletek:</h2>
+    <ul>
+        <li><code>git clone &lt;repository_url&gt;</code> - Egy távoli repository klónozása a helyi gépre.</li>
+        <li><code>git push &lt;remote_name&gt; &lt;branch_name&gt;</code> - Lokális commitok feltöltése a távoli repository-ba.</li>
+        <li><code>git pull &lt;remote_name&gt; &lt;branch_name&gt;</code> - Frissítés a lokális repository-ra a távoli repository-ból.</li>
+        <li><code>git remote add &lt;remote_name&gt; &lt;repository_url&gt;</code> - Egy távoli repository hozzáadása mint távoli.</li>
+        <li><code>git remote -v</code> - Az összes távoli repository listázása.</li>
+    </ul>
+</body>
+</html>
