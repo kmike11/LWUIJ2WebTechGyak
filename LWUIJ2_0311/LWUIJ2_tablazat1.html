@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablazat1</title>
+    <style>
+        .container {
+            width: 100px;
+            height: 100px;
+            overflow: scroll;
+        }
+        .table-container {
+            max-width: 300px;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            width: 33.33%;
+            height: 33.33%;
+            text-align: center;
+            vertical-align: middle;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Táblázat készítése</h1>
+    <h2>Első táblázatunk</h2>
+<div class="table-container">
+    <table>
+        <tr style="height: 100px;">
+            <td>1.sor 1.elem</td>
+            <td>1.sor 2.elem</td>
+            <td>1.sor 3.elem</td>
+        </tr>
+        <tr>
+            <td>2.sor 4.elem</td>
+            <td>
+                <div class="container">
+                    bnasfhnasjkofnjkasnfjkanweafgnnawejkfgngjkfnaweklfmnklafa
+                </div>
+            </td>
+            <td>2.sor 6.elem</td>
+        </tr>
+        <tr style="height: 180px;">
+            <td>3.sor 7.elem</td>
+            <td>3.sor 8.elem</td>
+            <td>
+                asmfklasmklfwklmfkqwnfgklqwfnláqmfopqwmfléqwjmfqwm fkléqjmwfklmqwkfmklqwf
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
