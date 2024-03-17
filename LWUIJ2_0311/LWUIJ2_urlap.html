@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Űrlap</title>
+    <style>
+      body {
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        background-color: #fff0f5; /* halvány rózsaszín */
+        color: #4b0082; /* indigókék */
+        padding: 20px;
+        margin: 0;
+      }
+
+      header h1 {
+        color: #ff4500; /* narancssárga */
+        text-align: center;
+        font-size: 32px;
+      }
+
+      section {
+        background-color: #f0e68c; /* khaki */
+        padding: 20px;
+        border-radius: 10px; /* kerekített sarkok */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* enyhe árnyék */
+        margin-bottom: 20px;
+      }
+
+      .input-field {
+        display: block;
+        margin: 10px 0;
+        color: #000080; /* sötétkék */
+      }
+
+      input[type="text"],
+      input[type="password"],
+      input[type="number"],
+      input[type="range"],
+      input[list="fruits"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 5px; /* kerekített sarkok az input mezőknél */
+        border: 1px solid #20b2aa; /* világos türkiz szegély */
+      }
+
+      input[type="submit"],
+      button {
+        background-color: #32cd32; /* világoszöld */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px; /* kerekített sarkok a gomboknál */
+        cursor: pointer;
+        font-size: 18px;
+      }
+
+      input[type="submit"]:hover,
+      button:hover {
+        background-color: #ff69b4; /* élénk rózsaszín */
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Űrlap címe</h1>
+    </header>
+
+    <section>
+      <form id="myForm">
+        <label for="name" class="input-field"
+          >Név:
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            pattern="[a-zA-Z\s]+"
+            autocomplete="off"
+            placeholder="Írja be a nevét"
+        /></label>
+        <label for="pin" class="input-field"
+          >Pin kód:
+          <input
+            type="password"
+            id="pin"
+            name="pin"
+            required
+            pattern="\d{4}"
+            placeholder="4 számjegyű PIN"
+        /></label>
+
+        <label for="fruit" class="input-field"
+          >Kedvenc gyümölcs: <input list="fruits" name="fruit" id="fruit" />
+          <datalist id="fruits">
+            <option value="Alma 250Ft/kg"></option>
+            <option value="Banán 350Ft/kg"></option>
+            <option value="Citrom 450Ft/kg"></option>
+          </datalist>
+        </label>
+
+        <label for="age" class="input-field"
+          >Életkor:
+          <input type="number" id="age" name="age" min="1" max="100" step="1"
+        /></label>
+        <label for="shoeSize" class="input-field"
+          >Lábméret:
+          <input
+            type="number"
+            id="shoeSize"
+            name="shoeSize"
+            min="25"
+            max="50"
+            step="0.5"
+        /></label>
+        <label for="confidence" class="input-field"
+          >Önbizalom:
+          <input
+            type="range"
+            id="confidence"
+            name="confidence"
+            min="0"
+            max="100"
+            class="range-slider"
+        /></label>
+      </form>
+    </section>
+
+    <button form="myForm" type="submit">Elküld</button>
+    <button form="myForm" type="button" onclick="submitWithoutValidation()">
+      Elküld ellenőrzés nélkül
+    </button>
+
+    <footer>
+      <p>Forrás</p>
+    </footer>
+
+    <script>
+      function submitWithoutValidation() {
+        document.getElementById("myForm").submit();
+      }
+    </script>
+  </body>
+</html>
