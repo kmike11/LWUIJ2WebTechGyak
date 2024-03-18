@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Űrlap</title>
+    <style>
+        .container {
+            width: 400px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #91f3f3;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-field {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding-top: 10px;
+        }
+
+        footer hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            width: 100%;
+        }
+
+        footer ul {
+            padding-left: 0;
+        }
+
+        footer ul li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Űrlap címe</h1>
+        </header>
+
+        <section>
+            <form id="myForm" action="submit.php" method="POST">
+                <label for="name" class="input-field">Név:
+                    <input type="text" id="name" name="name" required pattern="[a-zA-Z\s]+" autocomplete="off" placeholder="Írja be a nevét" />
+                </label>
+                <label for="pin" class="input-field">Pin kód:
+                    <input type="password" id="pin" name="pin" required pattern="\d{4}" placeholder="4 számjegyű PIN" />
+                </label>
+                <label for="fruit" class="input-field">Kedvenc gyümölcs:
+                    <input list="fruits" name="fruit" id="fruit" />
+                    <datalist id="fruits">
+                        <option value="Alma 250Ft/kg"></option>
+                        <option value="Banán 350Ft/kg"></option>
+                        <option value="Citrom 450Ft/kg"></option>
+                    </datalist>
+                </label>
+                <label for="age" class="input-field">Életkor:
+                    <input type="number" id="age" name="age" min="1" max="100" step="1" />
+                </label>
+                <label for="shoeSize" class="input-field">Lábméret:
+                    <input type="number" id="shoeSize" name="shoeSize" min="25" max="50" step="0.5" />
+                </label>
+                <label for="confidence" class="input-field"
+                >Önbizalom:
+                <span class="range-label">0</span>
+                <input
+                  type="range"
+                  id="confidence"
+                  name="confidence"
+                  min="0"
+                  max="100"
+                  class="range-slider"
+                />
+                <span class="range-label">100</span>
+              </label>
+            </form>
+        </section>
+
+        <button form="myForm" type="submit">Elküld</button>
+        <button form="myForm" type="button" onclick="document.getElementById('myForm').submit();">Elküld ellenőrzés nélkül</button>
+    </div>
+
+    <footer>
+        <hr>
+        <ul>
+            <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
+            <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
+            <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

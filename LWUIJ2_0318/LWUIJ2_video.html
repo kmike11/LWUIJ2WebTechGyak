@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player Controls</title>
+    <script>
+        function playPauseVideo() {
+            var video = document.getElementById('myVideo');
+            if (video.paused) video.play();
+            else video.pause();
+        }
+ 
+        function toggleMute() {
+            var video = document.getElementById('myVideo');
+            video.muted = !video.muted;
+        }
+ 
+        function changeVolume(increment) {
+            var video = document.getElementById('myVideo');
+            video.volume = Math.min(Math.max(0, video.volume + increment), 1);
+        }
+ 
+        function changePlaybackRate(rate) {
+            var video = document.getElementById('myVideo');
+            video.playbackRate = rate;
+        }
+ 
+        function skipTo(time) {
+            var video = document.getElementById('myVideo');
+            video.currentTime = time;
+        }
+ 
+        function showCurrentTime() {
+            var video = document.getElementById('myVideo');
+            alert('Current Time: ' + video.currentTime);
+        }
+ 
+        function endVideo() {
+            var video = document.getElementById('myVideo');
+            video.currentTime = video.duration;
+        }
+    </script>
+</head>
+<body>
+    <video id="myVideo" width="320" height="240" controls>
+        <source src="LWUIJ2_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <br>
+    <button onclick="playPauseVideo()">Play/Pause</button>
+    <button onclick="toggleMute()">Mute/Unmute</button>
+    <button onclick="changeVolume(0.1)">Volume Up</button>
+    <button onclick="changeVolume(-0.1)">Volume Down</button>
+    <button onclick="changePlaybackRate(0.5)">Very Slow</button>
+    <button onclick="changePlaybackRate(0.75)">Slow</button>
+    <button onclick="changePlaybackRate(1)">Normal</button>
+    <button onclick="changePlaybackRate(1.25)">Faster</button>
+    <button onclick="changePlaybackRate(2)">Very Fast</button>
+    <button onclick="endVideo()">End Video</button>
+    <button onclick="skipTo(120)">Skip to 2 Minutes</button>
+    <button onclick="showCurrentTime()">Show Current Time</button>
+</body>
+</html>
+ 
