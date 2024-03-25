@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=700px, height=350px, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+        <section id="tartalom">
+            <canvas id="KMCanvas" width="700px" height="350" style="border:1px solid #000000;"></canvas>
+            <img id="kep" src="iit.jpg">
+
+        </section>
+    
+    <footer id="lablec"></footer>
+    <script>
+
+        window.onload = function() {
+            
+            /* idk??????????
+            km.lineWidth = 2;
+            km.strokeStyle = "#cc0066";
+            km.font = "40px Calibri";
+            km.textAlign = "center";
+            km.fillStyle = "#ff6600";
+            km.fillText("Mérnökinformatika 2024",250,50);
+            */
+            
+
+            var km = document.getElementById("KMCanvas");
+            var kmx = KMCanvas.getContext("2d");
+
+            kmx.lineWidth = 5;
+            kmx.strokeStyle = "#0066ff";
+            kmx.strokeRect(80,180,200,120);
+
+            var gradient = kmx.createRadialGradient(175,87,10,200,100,75);
+
+            //téglalap
+
+            
+            gradient.addColorStop("0", "#ffcc00");
+            gradient.addColorStop("0.3", "#6600ff");
+            gradient.addColorStop("1.0", "#33ff33");
+            
+            kmx.fillStyle = "00cc66";
+            kmx.fillStyle = gradient;
+            kmx.fillRect(100,60,150,75);
+            kmx.fillStyle = gradient;
+            kmx.fillRect(100,60,150,75);
+            
+            
+            //kör
+
+            var gradient = kmx.createLinearGradient(0, 0, 300, 0);
+
+            kmx.lineWidth = 7;
+            kmx.strokeStyle = "#6633ff";
+            kmx.beginPath();
+            kmx.arc(450,150,65,0.3*Math.PI,1.5*Math.PI);
+            kmx.stroke();
+
+            kmx.fillStyle = "#ffcc33";
+            kmx.fill();
+            
+            
+
+        }
+    </script>
+    
+    
+</body>
+</html>
