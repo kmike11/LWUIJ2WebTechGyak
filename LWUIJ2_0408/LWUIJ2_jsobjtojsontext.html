@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS objektumot konvertálja JSON Text.</title>
+</head>
+<body>
+    <div id="json-object"></div>
+    <div id="json-text"></div>
+
+    <script>
+
+        var adatok = {
+            név: "Krumplil Ángos",
+            irányítószám: "12345",
+            város: "Miskolc",
+            egyetem: "ME"
+        };
+
+        var jsonText = JSON.stringify(adatok, null, 4);
+
+        document.getElementById("json-object").innerText = "JavaScript objektum: " + JSON.stringify(adatok, null, 4);
+        document.getElementById("json-text").innerText = "JSON Text: " + jsonText;
+        
+    </script>
+</body>
+</html>
