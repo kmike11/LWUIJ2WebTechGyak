@@ -1,0 +1,91 @@
+{
+    "BL_orarend": {
+        "kurzus": [
+            {
+                "kurzusnev": "Web technologia alapjai",
+                "idopont": {
+                    "nap": "Hétfő",
+                    "tol": 8,
+                    "ig": 10
+                },
+                "helyszin": "X ea",
+                "oktato": "Agárdi Anita",
+                "szak": "PTI, MI"
+            },
+            {
+                "kurzusnev": "Web technologia alapjai",
+                "idopont": {
+                    "nap": "Hétfő",
+                    "tol": 12,
+                    "ig": 14
+                },
+                "helyszin": "In103",
+                "oktato": "Dr. Bednarik László",
+                "szak": "PTI, MI"
+            }
+            {
+                "kurzusnev": "Modern fizika",
+                "idopont": {
+                    "nap": "Kedd",
+                    "tol": 8,
+                    "ig": 10
+                },
+                "helyszin": "A1/320",
+                "oktato": "Dr. Kovács Endre",
+                "szak": "PTI, MI"
+            }
+            {
+                "kurzusnev": "C# programozás",
+                "idopont": {
+                    "nap": "Hétfő",
+                    "tol": 10,
+                    "ig": 12
+                },
+                "helyszin": "In103",
+                "oktato": "Dr. Shmidt László",
+                "szak": "PTI, MI"
+            }
+            {
+                "kurzusnev": "Numerikus analízis",
+                "idopont": {
+                    "nap": "Kedd",
+                    "tol": 12,
+                    "ig": 14
+                },
+                "helyszin": "XXXIII ea",
+                "oktato": "Dr. Földvári Attila József",
+                "szak": "PTI, MI"
+            }
+            {
+                "kurzusnev": "Numerikus analízis",
+                "idopont": {
+                    "nap": "Kedd",
+                    "tol": 12,
+                    "ig": 14
+                },
+                "helyszin": "XXXIII ea",
+                "oktato": "Dr. Földvári Attila József",
+                "szak": "PTI, MI"
+            },
+            {
+                "cim":
+                {
+                    "stret": "Egyetemváros",
+                    "city": "Miskolc",
+                    "code": "1021"
+                },
+                "phone number":
+                [
+                    {
+                        "type": "Vezetékes:",
+                        "number": "0646 555-123"
+                    },
+                    {
+                        "type": "Mobil:",
+                        "number:" "0670 555-4567"
+                    }
+                ]
+            }   
+        ]
+    }
+}
