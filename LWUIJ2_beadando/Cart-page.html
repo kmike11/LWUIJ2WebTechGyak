@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BK Borsod Krumpli</title>
+    <link rel="icon" type="image/png" href="Images/carts.png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <body>
+    <header>
+        <div class="information-tab" role="info container">
+          <form action="#" aria-label="form">
+            <div style="visibility: collapse;">
+            <select
+              name="lang-select"
+              id="lang-select"
+              aria-labelledby="select box"
+            >
+            </select>
+          </div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="bottom-header" id="bottom-head">
+        <div class="sticky-bar-wrapper bg-white" id="sticky-section">
+          <nav
+            class="navbar navbar-expand-lg navbar-light bg-white"
+            id="bottom-header-navbar"
+          >
+            <div class="container-fluid">
+              <a class="navbar-brand" href="index.html"
+                ><img
+                  id="logo_img"
+                  src="Images/logo.png"
+                  alt="logo"
+                  role="img"
+                  aria-label=" website logo"
+              /></a>
+              <div
+                class="input-group d-xl-none d-lg-none"
+                id="search-box-container"
+              >
+              </div>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul
+                  class="navbar-nav mr-auto mt-2 ml-xl-5 ml-lg-5 ml-md-0 mt-lg-0 text-center"
+                >
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">BK Borsod Krumpli</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link active drop-btn" href="Product-list.html"
+                      >Krumplifajták</a
+                    >
+                    <div class="dropdown-content mt-2">
+                      <a href="Product-list.html">Nyers krumpli</a>
+                      <a href="Product-list.html">Főtt krumpli</a>
+                      <a href="Product-list.html">Sült krumpli</a>
+                    </div>
+                  </li>
+                  <li class="nav-item notification">
+                    <a class="nav-link" href="Cart-page.html">Kosár</a>
+                  </li>
+                </ul>
+                <form
+                  class="form-inline my-2 my-lg-0 d-flex flex-column align-items-stretch justify-content-start"
+                >
+                  <div>
+                    <button
+                      class="btn btn-orange my-2 my-sm-0"
+                      id="signin"
+                      type="button"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      aria-labelledby="sign-in-btn"
+                    >
+                      BELÉPÉS
+                    </button>
+                    <button
+                      class="btn btn-orange my-2 my-sm-0"
+                      id="signin"
+                      type="button"
+                      onclick="window.location.href = 'Register-page.html';"
+                      aria-labelledby="sign-in-btn"
+                    >
+                      ÚJ VAGYOK
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div
+          class="modal fade"
+          id="exampleModalCenter"
+          tabindex="-1"
+          role="dialog"
+          aria-label="exampleModalCenterTitle"
+          aria-hidden="true"
+        >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header d-flex flex-column align-items-center">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <img src="Images/logo.png" alt="modal logo" />
+            </div>
+            <div class="modal-body">
+              <ul
+                class="nav nav-tabs nav-justified"
+                id="myTab"
+                role="tablist"
+              >
+                <li class="nav-item">
+                  <a
+                    href="#login"
+                    id="tab1"
+                    class="nav-link active"
+                    style="border-color: white"
+                    aria-controls="login"
+                    aria-selected="true"
+                    role="tab"
+                    tabindex="1"
+                    data-toggle="tab"
+                    >BEJELENTKEZÉS</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="#create-account"
+                    id="tab2"
+                    class="nav-link"
+                    style="border-color: white"
+                    aria-controls="create-account"
+                    aria-selected="false"
+                    role="tab"
+                    tabindex="0"
+                    data-toggle="tab"
+                    >REGISZTRÁLÁS</a
+                  >
+                </li>
+              </ul>
+              <div class="tab-content mt-3" id="myTabContent">
+                <div
+                  class="tab-pane active"
+                  id="login"
+                  role="tabpanel"
+                  aria-labelledby="tab1"
+                  aria-hidden="false"
+                >
+                  <form class="d-flex flex-column">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1"
+                        >E-MAIL <span class="required">*</span></label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        role="email"
+                        placeholder="Add meg az emailed"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1"
+                        >JELSZÓ <span class="required">*</span></label
+                      >
+                      <div class="input-group d-flex flex-row">
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="exampleInputPassword1"
+                          placeholder="Add meg a jelszavad"
+                        />
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <i class="bi bi-eye-fill ml-2"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-orange rounded-0">
+                      BEJELENTKEZÉS</button
+                    ><br />
+                    <button type="submit" class="btn btn-default2 rounded-0">
+                      ELFELEJTETTED A JELSZAVAD?
+                    </button>
+                  </form>
+                </div>
+                <div
+                  class="tab-pane"
+                  id="create-account"
+                  role="tabpanel"
+                  aria-labelledby="tab2"
+                  aria-hidden="true"
+                >
+                  <form class="d-flex flex-column">
+                    <div class="form-group">
+                      <label for="exampleInputUsername2"
+                        >FELHASZNÁLÓNÉV <span class="required">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="exampleInputUsername2"
+                        role="username"
+                        placeholder="Add meg a felhasználóneved"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail2"
+                        >E-MAIL <span class="required">*</span></label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail2"
+                        role="email"
+                        placeholder="Add meg az emailed"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword2"
+                        >JELSZÓ <span class="required">*</span></label
+                      >
+                      <div class="input-group d-flex flex-row">
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="exampleInputPassword2"
+                          placeholder="Add meg a jelszavad"
+                        />
+                        <div class="input-group-append">
+                          <div class="input-group-text">
+                            <i class="bi bi-eye-fill ml-2"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-default btn-hover btn-orange rounded-0"
+                    >
+                      CSATLAKOZOK A KRUMPLIKHOZ</button
+                    ><br />
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer d-flex flex-column justify-items-center">
+              <span>VAGY</span>
+              <div class="modal-social-btn">
+                <a
+                  class="btn text-white"
+                  style="background-color: #3b5998"
+                  href="#!"
+                  role="button"
+                  ><span class="bi bi-facebook">FACEBOOK</span></a
+                >
+                <a
+                  class="btn text-white"
+                  style="background-color: #55acee"
+                  href="#!"
+                  role="button"
+                  ><span class="bi bi-twitter">TWITTER</span></a
+                >
+                <a
+                  class="btn text-white"
+                  style="background-color: #dd4b39"
+                  href="#!"
+                  role="button"
+                  ><span class="bi bi-google">GOOGLE</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </header>
+    <a
+      class="back-to-top-btn float-right"
+      id="scroll-btn"
+      role="button"
+      aria-label="back to top button"
+    >
+      <img
+        src="Images/up-green.png"
+        alt="goto top"
+        role="icon"
+        aria-label="back to top image"
+      />
+    </a>
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a class="text-dark" href="index.html">BK Borsod Krumpli</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Kosár</li>
+      </ol>
+    </nav>
+
+    <section class="cart-section">
+      <div class="container-fluid">
+        <div class="top-flex-container">
+          <h4 class="font-weight-bold mb-3">KOSARAM</h4>
+          <div class="totalCost d-flex justify-content-xl-between">
+            <p class="key font-weight-bold mr-2">ÖSSZESEN</p>
+            :
+            <p class="value d-flex font-weight-bold ml-2">
+              0<span id="totalCartValue">FT</span>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div
+            class="column1 col ml-xl-0 ml-sm-2 mb-2 col-xl-8 col-lg-12 col-md-12 col-sm-12"
+          >
+            <div class="cart-items-area" id="cart-items-area"></div>
+          </div>
+          <div
+            class="column2 col ml-xl-0 ml-sm-2 mb-2 col-xl-4 col-lg-12 col-md-12 col-sm-12"
+          >
+            <div class="billing-section">
+              <h5 class="font-weight-bold">KrumpliKuponjaim</h5>
+              <span class="font-weight-bold"
+                ><img
+                  class="mr-2"
+                  src="Images/tag-icon.png"
+                  alt="tag icon"
+                />KrumpliKupon</span
+              >
+              <button
+                type="button"
+                class="btn btn-default ml-3"
+                aria-label="edit button"
+              >
+                Aktivál
+              </button>
+              <hr />
+              <h6>RÉSZLETEZŐ</h6>
+              <br />
+              <div class="flex-item flex-item-1 d-flex justify-content-between">
+                <p class="key">RÉSZÖSSZEG</p>
+                <p class="value">0<span id="originalPrice">.FT</span></p>
+              </div>
+              <div class="flex-item flex-item-1 d-flex justify-content-between">
+                <p class="key">MENNYISÉGI KEDVEZMÉNY</p>
+                <p class="value text-success">
+                  0<span id="bagDiscount">.FT</span>
+                </p>
+              </div>
+              <div class="flex-item flex-item-1 d-flex justify-content-between">
+                <p class="key">KUPONKEDVEZMÉNY</p>
+                <p class="value"><a href="#">Aktiválom a krumplikuponom</a></p>
+              </div>
+              <div class="flex-item flex-item-1 d-flex justify-content-between">
+                <p class="key">VÉGÖSSZEG</p>
+                <p class="value">0<span id="orderTotal">.FT</span></p>
+              </div>
+              <div class="flex-item flex-item-1 d-flex justify-content-between">
+                <p class="key">Szállítási díj</p>
+                <p class="value text-success">
+                  <del class="text-dark mr-2">1499FT</del>Ingyenes
+                </p>
+              </div>
+              <hr />
+              <button
+                type="button"
+                class="btn btn-orange w-100"
+                aria-label="edit button"
+                onclick="location.href='Checkout.html';"
+              >
+                TOVÁBB A FIZETÉSHEZ
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="mt-5">
+      <div class="container-fluid w-75">
+        <div class="row">
+          <div
+            class="col col-xl-2 col-lg-3 col-md-2 col-sm-3 d-flex flex-column align-items-start"
+          >
+            <h3>BK Borsod Krumpli</h3>
+            <a href="#" role="link">RÓLUNK</a>
+            <a href="#" role="link">KARRIER</a>
+            <a href="#" role="link">BLOG</a>
+          </div>
+          <div
+            class="col col-xl-2 col-lg-3 col-md-3 col-sm-4 mt-md-0 mt-sm-5 d-flex flex-column align-items-start"
+          >
+            <h3>ELVESZTÉL A KRUMPLIK KÖZÖTT?</h3>
+            <a href="#" role="link">LÉPJ VELÜNK KAPCSOLATBA</a>
+            <a href="FAQ.html" role="link">GYIK</a>
+          </div>
+          <div
+            class="col col-xl-3 col-lg-5 col-md-6 col-sm-7 mt-xl-0 mt-lg-5 mt-md-5 mt-sm-5"
+          >
+            <h3>IRATKOZZ FEL HÍRKRUMPLINKRA</h3>
+            <div
+              class="input-group mb-2 d-flex justify-content-center align-items-center"
+            >
+              <input
+                type="text"
+                class="form-control"
+                placeholder="E-MAIL"
+                aria-label="Recipient's username"
+                aria-describedby="button-addon2"
+              />
+              <button
+                class="btn btn-outline-secondary d-flex align-items-center"
+                type="button"
+                id="button-addon2"
+              >
+                ZSA!
+              </button>
+            </div>
+            <small
+              >A KRUMPLIK KRUMPLIAPPJA IMMÁR ELÉRHETŐ<br />
+              <a href="#">ITT TUDOD LETÖLTENI</a></small
+            >
+          </div>
+        </div>
+      </div>
+      <hr />
+    </footer>
+    <script src="Javascript/index.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script src="Javascript/jQuery.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.onload = function () {
+        cart_num = JSON.parse(localStorage.getItem("Products_IDs")).length;
+        document.querySelector("#cart-badge").innerHTML = cart_num;
+        wishlist_num = JSON.parse(localStorage.getItem("Wishlist_IDs")).length;
+        document.querySelector("#wishlist-badge").innerHTML = wishlist_num;
+      };
+    </script>
+  </body>
+</html>
