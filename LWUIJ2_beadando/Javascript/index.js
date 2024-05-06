@@ -121,11 +121,7 @@ document.querySelectorAll(".prod-card").forEach((img) => {
   });
 });
 
-// ---------------------------------------------------------------------------------------------------------------------------
-
-// Code for products listings page through JSON
-
-let productsListUrl = "https://dummyjson-0egf.onrender.com/products";
+let productsListUrl = "https://json-server-p686.onrender.com/products";
 let productsList;
 let htmlToReturn = "",
   htmlToReturn2 = "",
@@ -134,11 +130,11 @@ let htmlToReturn = "",
   i = 0;
 
 async function showProducts(Url) {
-  fetch("https://dummyjson-0egf.onrender.com/products")
+  fetch("https://json-server-p686.onrender.com/products")
     .then((response) => response.json())
     .then((json) => {
       productsList = json;
-      productsList.products.forEach((product) => {
+      productsList.forEach((product) => {
         htmlToReturn = `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="prod-card mb-4" id='${product.id}'>
               <div class="icons d-flex justify-content-center" id="card_icons">
@@ -297,12 +293,10 @@ xmlhttp.onreadystatechange = function () {
     let ReturnedHTML2 = " ";
     let myProducts = JSON.parse(this.responseText);
     for (i = 0; i < productsArray.length; i++) {
-      for (j = 0; j < myProducts.products.length; j++) {
-        if (productsArray[i] == myProducts.products[j].id) {
-          prices_discounted.push(
-            parseInt(myProducts.products[j].priceAfterDiscount)
-          );
-          prices_original.push(parseInt(myProducts.products[j].price));
+      for (j = 0; j < myProducts.length; j++) {
+        if (productsArray[i] == myProducts[j].id) {
+          prices_discounted.push(parseInt(myProducts[j].priceAfterDiscount));
+          prices_original.push(parseInt(myProducts[j].price));
 
           // saving the prices arrays in session storage
           sessionStorage.setItem(
@@ -317,10 +311,10 @@ xmlhttp.onreadystatechange = function () {
           // rendering the HTML through JS
           ReturnedHTML2 = `<div class="cart-items-holder" id='${productsArray[i]}'>
             <div class='pdt-container' id='pdt-single'>
-                <img class='img-sweater' src="Images/${myProducts.products[j].imageName}.png" alt="Sweater Image">
+                <img class='img-sweater' src="Images/${myProducts[j].imageName}.png" alt="Sweater Image">
                 <div class="pdt-text w-100">
                     <div class="text1">
-                        <h6>${myProducts.products[j].name}</h6>
+                        <h6>${myProducts[j].name}</h6>
                         <p class="mb-0 text-secondary">Color : Multicolor</p>
                         <p class="mb-0 text-secondary">Seller : Indus Valley & Co</p>
                         <div class="forms mt-xl-3 mt-lg-3 mt-md-2 mt-sm-2 d-flex justify-content-start align-items-start">
@@ -348,7 +342,7 @@ xmlhttp.onreadystatechange = function () {
                         </div>
                     </div>
                     <div class="text2">
-                        <p class='pricing mb-0'>Rs.<strong id='final-price${i}'>${myProducts.products[j].priceAfterDiscount}</strong> Rs.<del id='initial-price${i}'>${myProducts.products[j].price}</del><span
+                        <p class='pricing mb-0'>Rs.<strong id='final-price${i}'>${myProducts[j].priceAfterDiscount}</strong> Rs.<del id='initial-price${i}'>${myProducts[j].price}</del><span
                             class="offer font-weight-bold ml-1">(60%Off)</span></p>
                             <small class="text-secondary">Delivery in 4 - 6 days</small>
                     </div>
@@ -638,23 +632,23 @@ xmlhttp2.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
     let myProducts = JSON.parse(this.responseText);
     for (i = 0; i < productsArray2.length; i++) {
-      for (j = 0; j < myProducts.products.length; j++) {
-        if (productsArray2[i] == myProducts.products[j].id) {
+      for (j = 0; j < myProducts.length; j++) {
+        if (productsArray2[i] == myProducts[j].id) {
           let ReturnedHTML3 = " ";
           ReturnedHTML3 = `<div class='pdt-container2' id='${productsArray2[i]}'> 
-            <img class='img-sweater' src="Images/${myProducts.products[j].imageName}.png" alt="Sweater Image">
+            <img class='img-sweater' src="Images/${myProducts[j].imageName}.png" alt="Sweater Image">
             <div class="pdt-text2 d-flex flex-row justify-content-between align-items-start">
                 <div class="text1">
-                    <h6>${myProducts.products[j].name}</h6>
+                    <h6>${myProducts[j].name}</h6>
                     <div class="stars-group mt-2" id="starsgroup">
                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>
                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>
                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>
                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>
                         <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>
-                        <small class="ml-2">${myProducts.products[j].reviews}</small>
+                        <small class="ml-2">${myProducts[j].reviews}</small>
                     </div>
-                    <p class='pricing mt-2 text-dark mb-0'><strong>Rs ${myProducts.products[j].priceAfterDiscount}</strong> <del>Rs ${myProducts.products[j].price}</del><span
+                    <p class='pricing mt-2 text-dark mb-0'><strong>Rs ${myProducts[j].priceAfterDiscount}</strong> <del>Rs ${myProducts[j].price}</del><span
                         class="offer font-weight-bold ml-1">(60%Off)</span></p>
                     <div class="form-group">
                         <label class='mr-2' for="exampleFormControlSelect2"></label>
