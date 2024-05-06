@@ -145,7 +145,7 @@ async function showProducts(Url) {
               <img class="card-img-top" src="Images/${product.imageName}.png" alt="Card image cap">
               <div class="card-body d-flex flex-column align-items-center">
                 <h5 class="card-title">${product.name}</h5>
-                <p class="card-text mb-0"><strong>Rs.${product.priceAfterDiscount}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
+                <p class="card-text mb-0"><strong>${product.priceAfterDiscount}</strong> <del>${product.price}</del><span class="offer">(60%Off)</span></p>
                 <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`;
         lowStar = 5 - Math.floor(product.ratings);
         for (i = 1; i <= product.ratings; i++) {
@@ -175,7 +175,7 @@ async function showProducts(Url) {
                 <img class="card-img-top" src="Images/${product.imageName}.png" alt="Card image cap">
                 <div class="card-body d-flex flex-column align-items-center">
                   <h5 class="card-title">${product.name}</h5>
-                  <p class="card-text mb-0"><strong>Rs.${product.priceAfterDiscount}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
+                  <p class="card-text mb-0"><strong>${product.priceAfterDiscount}</strong> <del>${product.price}</del><span class="offer">(60%Off)</span></p>
                   <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`;
         lowStar = 5 - Math.floor(product.ratings);
         for (i = 1; i <= product.ratings; i++) {
@@ -342,7 +342,7 @@ xmlhttp.onreadystatechange = function () {
                         </div>
                     </div>
                     <div class="text2">
-                        <p class='pricing mb-0'>Rs.<strong id='final-price${i}'>${myProducts[j].priceAfterDiscount}</strong> Rs.<del id='initial-price${i}'>${myProducts[j].price}</del><span
+                        <p class='pricing mb-0'><strong id='final-price${i}'>${myProducts[j].priceAfterDiscount}</strong> <del id='initial-price${i}'>${myProducts[j].price}</del><span
                             class="offer font-weight-bold ml-1">(60%Off)</span></p>
                             <small class="text-secondary">Delivery in 4 - 6 days</small>
                     </div>
