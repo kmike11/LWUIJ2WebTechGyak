@@ -1,4 +1,3 @@
-// Changing image and number onclick
 document.getElementById("lang-select").addEventListener("change", changeFunc);
 
 function changeFunc() {
@@ -19,9 +18,6 @@ function changeFunc() {
   }
 }
 
-// -------------------------------------------------------------------------------------------------------------------------
-
-// Adding the sticky navbar
 window.onscroll = () => {
   myFunction1(), show_scroller();
 };
@@ -38,7 +34,6 @@ function myFunction1() {
   }
 }
 
-// Scroll to Top
 
 let scroll = document.getElementById("scroll-btn");
 
@@ -59,9 +54,6 @@ function scrollToTop() {
   });
 }
 
-// ---------------------------------------------------------------------------------------------------------------------------
-
-// Code to show icons upon hover of products in Homepage
 document.querySelectorAll(".prod-card").forEach((card) => {
   card.children[0].style.visibility = "hidden";
 });
@@ -80,8 +72,6 @@ document.querySelectorAll(".prod-card").forEach((card) => {
   });
 });
 
-// Code to make individual icons change color on hover
-// a) Heart icon
 document.querySelectorAll(".prod-card").forEach((img) => {
   let img_1 = img.childNodes[1].childNodes[1].childNodes[0];
   img_1.addEventListener("mouseover", (func2) => {
@@ -94,7 +84,6 @@ document.querySelectorAll(".prod-card").forEach((img) => {
     img_1.src = "Images/heart-icon-trans.png";
   });
 });
-// b) Eye icon
 document.querySelectorAll(".prod-card").forEach((img) => {
   let img_2 = img.childNodes[1].childNodes[3].childNodes[0];
   img_2.addEventListener("mouseover", (func3) => {
@@ -107,7 +96,6 @@ document.querySelectorAll(".prod-card").forEach((img) => {
     img_2.src = "Images/eye-icon-trans.png";
   });
 });
-// b) Cart icon
 document.querySelectorAll(".prod-card").forEach((img) => {
   let img_3 = img.childNodes[1].childNodes[5].childNodes[0];
   img_3.addEventListener("mouseover", (func4) => {
@@ -195,7 +183,6 @@ async function showProducts(Url) {
             </div>`;
         document.getElementById("productListArea2").innerHTML += htmlToReturn2;
       });
-      // Code to show icons upon hover of products
       document.querySelectorAll(".prod-card").forEach((card) => {
         card.children[0].style.visibility = "hidden";
       });
@@ -214,8 +201,7 @@ async function showProducts(Url) {
         });
       });
 
-      // Code to make individual icons change color on hover
-      // a) Heart icon
+
       document.querySelectorAll(".prod-card").forEach((img) => {
         let img_1 = img.childNodes[1].childNodes[1].childNodes[0];
         img_1.addEventListener("mouseover", (func2) => {
@@ -228,7 +214,6 @@ async function showProducts(Url) {
           img_1.src = "Images/heart-icon-trans.png";
         });
       });
-      // b) Eye icon
       document.querySelectorAll(".prod-card").forEach((img) => {
         let img_2 = img.childNodes[1].childNodes[3].childNodes[0];
         img_2.addEventListener("mouseover", (func3) => {
@@ -241,7 +226,6 @@ async function showProducts(Url) {
           img_2.src = "Images/eye-icon-trans.png";
         });
       });
-      // b) Cart icon
       document.querySelectorAll(".prod-card").forEach((img) => {
         let img_3 = img.childNodes[1].childNodes[5].childNodes[0];
         img_3.addEventListener("mouseover", (func4) => {
@@ -258,27 +242,20 @@ async function showProducts(Url) {
 }
 showProducts(productsListUrl);
 
-// ---------------------------------------------------------------------------------------------------------
 
-// ---------------------------------------------------------------------------------------------------------
-// cart page logic
 let products = new Set();
 let counter = 0;
 
-// adding click events to cart icon
 document.body.addEventListener("click", (e) => {
   if (e.target.closest(".shopping")) {
     products.add(e.target.closest(".prod-card").id);
-    // storing product ids in local storage
     localStorage.setItem("Products_IDs", JSON.stringify(Array.from(products)));
 
-    // adding number of products in cart icon
     counter = JSON.parse(localStorage.getItem("Products_IDs")).length;
     document.querySelector("#cart-badge").innerHTML = String(counter);
   }
 });
 
-// parsing JSON List for cart page
 let RetrievedData = localStorage.getItem("Products_IDs");
 let productsArray = JSON.parse(RetrievedData);
 
@@ -298,7 +275,6 @@ xmlhttp.onreadystatechange = function () {
           prices_discounted.push(parseInt(myProducts[j].priceAfterDiscount));
           prices_original.push(parseInt(myProducts[j].price));
 
-          // saving the prices arrays in session storage
           sessionStorage.setItem(
             "discountedPrices",
             JSON.stringify(Array.from(prices_discounted))
@@ -308,7 +284,6 @@ xmlhttp.onreadystatechange = function () {
             JSON.stringify(Array.from(prices_original))
           );
 
-          // rendering the HTML through JS
           ReturnedHTML2 = `<div class="cart-items-holder" id='${productsArray[i]}'>
             <div class='pdt-container' id='pdt-single'>
                 <img class='img-sweater' src="Images/${myProducts[j].imageName}.png" alt="Sweater Image">
@@ -359,13 +334,11 @@ xmlhttp.onreadystatechange = function () {
       }
     }
 
-    // retrieving the prices from storage
     RetrievedDiscountPrices = sessionStorage.getItem("discountedPrices");
     RetrievedOriginalPrices = sessionStorage.getItem("originalPrices");
     pricesOnDiscount = prices_discounted;
     pricesOriginal = prices_original;
 
-    // calculating the total, subtotal, discount prices when the items are added to cart for the first time
     document.getElementById("totalCartValue").innerHTML =
       calculateTotalCartValue(pricesOnDiscount);
     document.getElementById("originalPrice").innerHTML =
@@ -376,7 +349,6 @@ xmlhttp.onreadystatechange = function () {
     document.getElementById("orderTotal").innerHTML =
       calculateTotalCartValue(pricesOnDiscount);
 
-    // assigning prices to local storage so they can be retrieved in checkout page
     localStorage.setItem(
       "finalPrice",
       calculateTotalCartValue(pricesOnDiscount)
@@ -385,11 +357,9 @@ xmlhttp.onreadystatechange = function () {
       "originalPrice",
       calculateTotalCartValue(pricesOriginal)
     );
-    // localStorage.setItem("bagDiscount", (calculateTotalCartValue(pricesOriginal) - calculateTotalCartValue(pricesOriginal)));
 
     pricesOnDiscount2 = pricesOnDiscount;
     pricesOriginal2 = pricesOriginal;
-    // looping through the cart items to perform quantity selection based calculations
     for (let i = 0; i < totalCartItems; i++) {
       document.getElementById("exampleFormControlSelectQuantity" + i).onchange =
         () => {
@@ -424,7 +394,6 @@ xmlhttp.onreadystatechange = function () {
           );
         };
 
-      // removing products on click of remove button and updating all prices
       document
         .getElementById("remove-btn" + i)
         .addEventListener("click", fadeOutEffect);
@@ -475,7 +444,6 @@ xmlhttp.onreadystatechange = function () {
               }
             }
           }
-          // Don't forget to store the result back in localStorage and set the cart icon value
           localStorage.setItem(
             "Products_IDs",
             JSON.stringify(Array.from(items))
@@ -485,12 +453,10 @@ xmlhttp.onreadystatechange = function () {
         }, 100);
       }
 
-      // addToWishlist functionality for cart items
       document
         .getElementById("wishlist-btn" + i)
         .addEventListener("click", fadeOutEffect4);
       function fadeOutEffect4() {
-        // get product Id of the removed product and update counter of cart icon
         var productId4 = document
           .getElementById("wishlist-btn" + i)
           .closest(".cart-items-holder").id;
@@ -499,9 +465,6 @@ xmlhttp.onreadystatechange = function () {
           localStorage.getItem("Wishlist_IDs")
         );
 
-        // If no existing data, create an array
-        // Otherwise, convert the localStorage string to an array
-        // existing_Products = existing_Products ?  existing_Products.push(document.getElementById('addToCart' + i).closest('.pdt-container2').id) : [];
 
         if (existing_fav_Products == null) {
           existing_fav_Products = [];
@@ -512,20 +475,13 @@ xmlhttp.onreadystatechange = function () {
             .closest(".cart-items-holder").id
         );
 
-        // Add new data to localStorage Array
-        // existing_Products.push(document.getElementById('addToCart' + i).closest('.pdt-container2').id);
-
-        // Save back to localStorage
         localStorage.setItem(
           "Wishlist_IDs",
           JSON.stringify(Array.from(existing_fav_Products))
         );
 
-        // fav_products.add(document.getElementById('wishlist-btn' + i).closest('.cart-items-holder').id);
-        // localStorage.setItem('Wishlist_IDs', JSON.stringify(Array.from(fav_products)));
         counter2 = JSON.parse(localStorage.getItem("Wishlist_IDs")).length;
         document.querySelector("#wishlist-badge").innerHTML = String(counter2);
-        // fade effect while removing product
         var fadeTarget2 = document.getElementById(productId4);
         var fadeEffect2 = setInterval(function () {
           if (!fadeTarget2.style.opacity) {
@@ -556,7 +512,6 @@ xmlhttp.onreadystatechange = function () {
               "originalPrice",
               calculateTotalCartValue(pricesOriginal2) - pricesOriginal2[i]
             );
-            // removing that particular Id from local storage
             var items4 = JSON.parse(localStorage.getItem("Products_IDs"));
             for (var m = 0; m < items4.length; m++) {
               var item1 = items4[m];
@@ -568,7 +523,6 @@ xmlhttp.onreadystatechange = function () {
                 break;
               }
             }
-            // Don't forget to store the result back in localStorage and set the cart icon value
             localStorage.setItem(
               "Products_IDs",
               JSON.stringify(Array.from(items4))
@@ -579,7 +533,6 @@ xmlhttp.onreadystatechange = function () {
         }, 100);
       }
     }
-    // function to calculate discounted price
     function calculateTotalCartValue(prices) {
       sum = 0;
       for (p of prices) {
@@ -588,7 +541,6 @@ xmlhttp.onreadystatechange = function () {
       return sum;
     }
 
-    // function to calculate original price
     function calculateOriginalCartValue(prices) {
       sum_2 = 0;
       for (q of prices) {
@@ -601,23 +553,17 @@ xmlhttp.onreadystatechange = function () {
 xmlhttp.open("GET", "products.json", true);
 xmlhttp.send();
 
-// ----------------------------------------------------------------------------------------------------------------------------
-
-// wishlist page logic
 let fav_products = new Set();
 let counter2 = 0;
 
-// adding click events to heart icon
 document.body.addEventListener("click", (f) => {
   if (f.target.closest(".heart")) {
     fav_products.add(f.target.closest(".prod-card").id);
-    // storing product ids in local storage
     localStorage.setItem(
       "Wishlist_IDs",
       JSON.stringify(Array.from(fav_products))
     );
 
-    // adding number of products in cart icon
     counter2 = JSON.parse(localStorage.getItem("Wishlist_IDs")).length;
     document.querySelector("#wishlist-badge").innerHTML = String(counter2);
   }
@@ -702,7 +648,6 @@ xmlhttp2.onreadystatechange = function () {
               break;
             }
           }
-          // Don't forget to store the result back in localStorage and set the cart icon value
           localStorage.setItem(
             "Wishlist_IDs",
             JSON.stringify(Array.from(items2))
@@ -713,23 +658,17 @@ xmlhttp2.onreadystatechange = function () {
         }, 100);
       }
 
-      // addToCart functionality for wishlist items
       document
         .getElementById("addToCart" + i)
         .addEventListener("click", fadeOutEffect3);
       function fadeOutEffect3() {
-        // get product Id of the removed product and update counter of cart icon
         var productId3 = document
           .getElementById("addToCart" + i)
           .closest(".pdt-container2").id;
-        // Get the existing data
         var existing_Products = JSON.parse(
           localStorage.getItem("Products_IDs")
         );
 
-        // If no existing data, create an array
-        // Otherwise, convert the localStorage string to an array
-        // existing_Products = existing_Products ?  existing_Products.push(document.getElementById('addToCart' + i).closest('.pdt-container2').id) : [];
 
         if (existing_Products == null) {
           existing_Products = [];
@@ -738,21 +677,14 @@ xmlhttp2.onreadystatechange = function () {
           document.getElementById("addToCart" + i).closest(".pdt-container2").id
         );
 
-        // Add new data to localStorage Array
-        // existing_Products.push(document.getElementById('addToCart' + i).closest('.pdt-container2').id);
-
-        // Save back to localStorage
         localStorage.setItem(
           "Products_IDs",
           JSON.stringify(Array.from(existing_Products))
         );
 
-        // products.add(document.getElementById('addToCart' + i).closest('.pdt-container2').id);
-        // localStorage.setItem('Products_IDs', JSON.stringify(Array.from(products)));
         counter = JSON.parse(localStorage.getItem("Products_IDs")).length;
         document.querySelector("#cart-badge").innerHTML = String(counter);
 
-        // fade effect while removing product
         var fadeTarget1 = document.getElementById(productId3);
         var fadeEffect1 = setInterval(function () {
           if (!fadeTarget1.style.opacity) {
@@ -764,7 +696,6 @@ xmlhttp2.onreadystatechange = function () {
             clearInterval(fadeEffect1);
             fadeTarget1.style.display = "none";
           }
-          // removing that particular Id from local storage
           var items3 = JSON.parse(localStorage.getItem("Wishlist_IDs"));
           for (var l = 0; l < items3.length; l++) {
             var item1 = items3[l];
@@ -776,7 +707,6 @@ xmlhttp2.onreadystatechange = function () {
               break;
             }
           }
-          // Don't forget to store the result back in localStorage and set the cart icon value
           localStorage.setItem(
             "Wishlist_IDs",
             JSON.stringify(Array.from(items3))
@@ -792,9 +722,6 @@ xmlhttp2.onreadystatechange = function () {
 xmlhttp2.open("GET", "products.json", true);
 xmlhttp2.send();
 
-// ___________________________________________________________________________________________________________________________________________________
-
-// setting local storage in edit profile page
 const mobile = document.getElementById("profileInputMobileNum");
 const full_name = document.getElementById("profileInputFullname");
 const email = document.getElementById("profileInputEmail1");
@@ -852,7 +779,6 @@ function goToProfilePage() {
   location.href = "My-profile.html";
 }
 
-// Updating info on edit profile page with filled values
 window.onload = function () {
   if (localStorage.getItem("Mobile Number") == null) {
     document.getElementById("profileInputMobileNum").value = 9000000009;
@@ -912,5 +838,3 @@ window.onload = function () {
   wishlist_num = JSON.parse(localStorage.getItem("Wishlist_IDs")).length;
   document.querySelector("#wishlist-badge").innerHTML = wishlist_num;
 };
-
-// --------------------------------------------------------------------------------------------------------------
